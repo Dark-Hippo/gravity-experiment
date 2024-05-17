@@ -10,20 +10,26 @@ import { Game, Types } from "phaser";
 //  https://newdocs.phaser.io/docs/3.70.0/Phaser.Types.Core.GameConfig
 const config: Types.Core.GameConfig = {
     type: Phaser.AUTO,
-    width: 1024,
-    height: 768,
+    width: 600,
+    height: 300,
     parent: 'game-container',
-    backgroundColor: '#028af8',
     scale: {
-        mode: Phaser.Scale.FIT,
-        autoCenter: Phaser.Scale.CENTER_BOTH
+        mode: Phaser.Scale.NONE,
+        autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
+    },
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 0, x: 0},
+            debug: false
+        }
     },
     scene: [
         Boot,
         Preloader,
-        MainMenu,
+        // MainMenu,
         MainGame,
-        GameOver
+        // GameOver
     ]
 };
 
